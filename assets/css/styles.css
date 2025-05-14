@@ -1,0 +1,90 @@
+@import url('./buttons.css');
+@import url('./typography.css');
+@import url('./every-layout.css');
+
+:root {
+    --font-family: 'Inter', sans-serif;
+    --max-width: 1280px;
+    --spacing-base: 1rem;
+
+    /* Colors/base */
+    --colors-base-white: #FFFFFF;
+
+    /* Colors/Brand */
+    --colors-brand-600: #7F56D9;
+    --colors-brand-700: #6941C6;
+
+    /* Colors/Gray (light mode) */
+    --colors-gray-light-mode-50: #F9FAFB;
+    
+}
+
+/* semantic color variables for this project */
+:root {
+    /* Background (light mode) */
+    --color-bg-primary: var(--colors-base-white);
+    --color-bg-primary_hover: var(--colors-gray-light-mode-50);
+
+    /* Button primary background (light mode) */
+    --button-primary-bg: var(--colors-brand-600);
+    --button-primary-bg_hover: var(--colors-brand-700);
+
+    --button-primary-fg: var(--colors-base-white);
+    --button-primary-fg_hover: var(--colors-base-white);
+    
+    --button-primary-border: var(--colors-brand-600);
+    --button-primary-border_hover: var(--colors-brand-700);
+}
+
+/* Radius */
+:root {
+    --radius-md: 0.8rem;
+    --radius-full: 999.9rem;
+}
+
+*,
+*::before,
+*::after {
+    background-color: inherit;
+    border: 0 solid;
+    box-sizing: border-box;
+    color: inherit;
+    font-family: inherit;
+    font-size: inherit;
+    margin: 0;
+    overflow-wrap: break-word;
+    padding: 0;
+    text-decoration: none;
+}
+
+/* Remove List Bullets/Points */
+ul {
+    list-style: none;
+}
+
+body {
+    max-inline-size: var(--max-width, 1280px);
+    margin-inline: auto;
+    font-family: var(--font-family), sans-serif;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+}
+
+p {
+    font-size: var(--font-size-text-xl);
+    font-weight: 400;
+    line-height: var(--line-height-text-xl);
+}
+
+h1 {
+    font-size: var(--font-size-display-lg);
+    font-weight: 600;
+    line-height: var(--line-height-display-lg);
+    letter-spacing: -0.96px;
+}
+
+h2 {
+    font-size: var(--font-size-text-xl);
+    font-weight: 600;
+    line-height: var(--line-height-text-xl);
+}
