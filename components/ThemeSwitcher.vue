@@ -69,7 +69,7 @@ onUnmounted(() => {
 <style scoped>
 
 .dark-mode-toggle {
-  background-color: var(--color-bg-primary);
+  background-color: var(--colors-bg-primary);
 }
 
 .switch {

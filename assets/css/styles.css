@@ -14,16 +14,25 @@
     --colors-brand-600: #7F56D9;
     --colors-brand-700: #6941C6;
 
+    /* Colors/Gray (dark mode) */
+    --colors-gray-dark-mode-50: #F5F5F6;
+    --colors-gray-dark-mode-300: #CECFD2;
+    --colors-gray-dark-mode-400: #94969C;
+    --colors-gray-dark-mode-800: #1F242F;
+    --colors-gray-dark-mode-950: #0C111D;
+
     /* Colors/Gray (light mode) */
     --colors-gray-light-mode-50: #F9FAFB;
+    --colors-gray-light-mode-600: #475467;
+    --colors-gray-light-mode-900: #101828;
     
 }
 
 /* semantic color variables for this project */
-:root {
+html {
     /* Background (light mode) */
-    --color-bg-primary: var(--colors-base-white);
-    --color-bg-primary_hover: var(--colors-gray-light-mode-50);
+    --colors-bg-primary: var(--colors-base-white);
+    --colors-bg-primary_hover: var(--colors-gray-light-mode-50);
 
     /* Button primary background (light mode) */
     --button-primary-bg: var(--colors-brand-600);
@@ -34,6 +43,36 @@
     
     --button-primary-border: var(--colors-brand-600);
     --button-primary-border_hover: var(--colors-brand-700);
+
+    /* Text color (light mode) */
+    --colors-text-primary-900: var(--colors-gray-light-mode-900);
+    --colors-text-tertiary-600: var(--colors-gray-light-mode-600);
+
+    /* Text brand secondary (light mode) */
+    --colors-text-brand-secondary-700: var(--colors-brand-700);
+}
+
+html.dark {
+    /* Background (dark mode) */
+    --colors-bg-primary: var(--colors-gray-dark-mode-950);
+    --colors-bg-primary_hover: var(--colors-gray-dark-mode-800);
+
+    /* Button primary background (dark mode) */
+    --button-primary-bg: var(--colors-brand-600);
+    --button-primary-bg_hover: var(--colors-brand-700);
+
+    --button-primary-fg: var(--colors-base-white);
+    --button-primary-fg_hover: var(--colors-base-white);
+
+    --button-primary-border: var(--colors-brand-600);
+    --button-primary-border_hover: var(--colors-brand-700);
+
+    /* Text color (dark mode) */
+    --colors-text-primary-900: var(--colors-gray-dark-mode-50);
+    --colors-text-tertiary-600: var(--colors-gray-dark-mode-400);
+
+    /* Text brand secondary (dark mode) */
+    --colors-text-brand-secondary-700: var(--colors-gray-dark-mode-300);
 }
 
 /* Radius */
@@ -45,7 +84,6 @@
 *,
 *::before,
 *::after {
-    background-color: inherit;
     border: 0 solid;
     box-sizing: border-box;
     color: inherit;
@@ -63,6 +101,7 @@ ul {
 }
 
 body {
+    background: var(--colors-bg-primary);
     max-inline-size: var(--max-width, 1280px);
     margin-inline: auto;
     font-family: var(--font-family), sans-serif;
@@ -74,6 +113,7 @@ p {
     font-size: var(--font-size-text-xl);
     font-weight: 400;
     line-height: var(--line-height-text-xl);
+    color: var(--colors-text-tertiary-600);
 }
 
 h1 {
@@ -81,10 +121,12 @@ h1 {
     font-weight: 600;
     line-height: var(--line-height-display-lg);
     letter-spacing: -0.96px;
+    color: var(--colors-text-primary-900);
 }
 
 h2 {
     font-size: var(--font-size-text-xl);
     font-weight: 600;
     line-height: var(--line-height-text-xl);
+    color: var(--colors-text-brand-secondary-700);
 }
