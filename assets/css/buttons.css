@@ -35,3 +35,16 @@
     color: var(--button-primary-fg_hover);
     border-color: var(--button-primary-border_hover);
 }
+
+.btn[data-priority='secondary'] {
+    background-color: var(--button-secondary-bg);
+    color: var(--button-secondary-color-fg);
+    border: 0.063rem solid; /* converted */
+    border-color: var(--button-secondary-color-border);
+}
+
+.btn[data-priority='secondary']:hover {
+    background-color: var(--button-secondary-color-bg_hover);
+    color: var(--button-secondary-color-fg_hover);
+    border-color: var(--button-secondary-color-border_hover);
+}
