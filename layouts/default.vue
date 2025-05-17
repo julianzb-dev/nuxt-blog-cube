@@ -8,8 +8,9 @@ import ThemeSwitcher from "~/components/ThemeSwitcher.vue";
     <header>
       <nav class="navbar | cluster">
         <ul class="cluster">
-          <li><nuxt-link to="/">Home</nuxt-link></li>
-          <li><nuxt-link to="/blog">Blog</nuxt-link></li>
+          <li><nuxt-link class="nav-link" to="/">Home</nuxt-link></li>
+          <li><nuxt-link class="nav-link" to="/blog">Blog</nuxt-link></li>
+          <li><nuxt-link class="nav-link" to="/contact">Contact</nuxt-link></li>
           <li>
             <theme-switcher/>
           </li>
@@ -39,5 +40,17 @@ header {
 .navbar img {
   height: 2rem;
 }
+
+.nav-link {
+  font-size: var(--font-size-text-md);
+  font-weight: 600;
+  line-height: var(--line-height-text-md);
+  color: var(--button-tertiary-fg);
+}
+
+.nav-link:hover {
+  color: var(--button-tertiary-fg_hover);
+}
+
 /* End header section */
 </style>

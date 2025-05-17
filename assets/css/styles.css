@@ -101,6 +101,13 @@ html {
     --button-secondary-color-fg_hover: var(--colors-brand-800);
     --button-secondary-color-border: var(--colors-brand-300);
     --button-secondary-color-border_hover: var(--colors-brand-300);
+    
+    --button-link-color-fg: var(--colors-brand-700);
+    --button-link-color-fg_hover: var(--colors-brand-700);
+
+    /* Button ternary foreground (light mode) */
+    --button-tertiary-fg: var(--colors-gray-light-mode-600);
+    --button-tertiary-fg_hover: var(--colors-gray-light-mode-700);
 
     /* Border primary (light mode) */
     --border-primary: var(--colors-gray-light-mode-300);
@@ -144,19 +151,34 @@ html.dark {
     --button-secondary-color-border: var(--colors-gray-dark-mode-700);
     --button-secondary-color-border_hover: var(--colors-gray-dark-mode-700);
 
+    /* Button ternary foreground (light mode) */
+    --button-tertiary-fg: var(--colors-gray-dark-mode-400);
+    --button-tertiary-fg_hover: var(--colors-gray-dark-mode-200);
+
     /* Border primary (dark mode) */
     --border-primary: var(--colors-gray-dark-mode-700);
 }
 
 /* Radius */
 :root {
-    --radius-md: 0.8rem;
-    --radius-full: 999.9rem;
+    --radius-none: 0;
+    --radius-xxs: 2px;
+    --radius-xs: 4px;
+    --radius-sm: 6px;
+    --radius-md: 8px;
+    --radius-lg: 10;
+    --radius-xl: 12px;
+    --radius-2xl: 16px;
+    --radius-3xl: 20px;
+    --radius-4xl: 24px;
+    --radius-full: 9999px;
 }
 
 /* Spacing */
 :root {
+    --spacing-xl: 1rem; /* converted */
     --spacing-3xl: 1.5rem; /* converted */
+    --spacing-4xl: 2rem; /* converted */
     --spacing-6xl: 3rem; /* converted */
     --spacing-9xl: 6rem; /* converted */
 }
