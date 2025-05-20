@@ -1,17 +1,30 @@
 :root {
+    --sont-size-text-sm: 0.875rem; /* converted */
     --font-size-text-md: 1rem; /* converted */
     --font-size-text-xl: 1.25rem; /* converted */
 
+    --font-size-display-xs: 1.5rem; /* converted */
+    --font-size-display-sm: 1.875rem; /* converted */
+    --font-size-display-md: 2.25rem; /* converted */
     --font-size-display-lg: 3rem; /* converted */
 
+    --Line-height-text-sm: 1.25rem; /* converted */
     --line-height-text-md: 1.5rem; /* converted */
     --line-height-text-xl: 1.875rem; /* converted */
-    
+
+    --line-height-display-xs: 2rem; /* converted */
+    --Line-height-display-sm: 2.375rem; /* converted */
+    --Line-height-display-md: 2.75rem; /* converted */
     --line-height-display-lg: 3.75rem; /* converted */
-    
 }
 
 /* display typography */
+.display-xs-semibold {
+    font-size: var(--font-size-display-xs);
+    font-weight: 600;
+    line-height: var(--line-height-display-xs);
+}
+
 .display-lg-semibold {
     font-size: var(--font-size-display-lg);
     font-weight: 600;
@@ -20,9 +33,26 @@
 }
 
 /* text typography */
+.text-sm-medium {
+    font-size: var(--sont-size-text-sm);
+    font-weight: 500;
+    line-height: var(--Line-height-text-sm);
+}
+
+.text-sm-semibold {
+    font-size: var(--sont-size-text-sm);
+    font-weight: 600;
+    line-height: var(--Line-height-text-sm);
+}
+
+.text-md-regular {
+    font-size: var(--font-size-text-md);
+    font-weight: 400;
+    line-height: var(--line-height-text-md);
+}
+
 .text-md-semibold {
     font-size: var(--font-size-text-md);
-    font-style: normal;
     font-weight: 600;
     line-height: var(--line-height-text-md);
 }
@@ -35,7 +65,6 @@
 
 .text-xl-semibold {
     font-size: var(--font-size-text-xl);
-    font-style: normal;
     font-weight: 600;
     line-height: var(--line-height-text-xl);
 }

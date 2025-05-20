@@ -29,6 +29,10 @@ import ThemeSwitcher from "~/components/ThemeSwitcher.vue";
 /* Start header section */
 header {
   border-bottom: 0.063rem solid var(--border-primary);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background-color: var(--colors-bg-primary);
 }
 
 .navbar {

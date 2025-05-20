@@ -11,7 +11,7 @@
 }
 
 .stack > * + * {
-    margin-block-start: 1.5rem;
+    margin-block-start: var(--base-margin-block-start, 1.5rem);
 }
 
 .center {
@@ -30,10 +30,10 @@
 
 @supports (width: min(250px, 100%)) {
     .grid {
-        grid-template-columns: repeat(auto-fit, minmax(min(250px, 100%), 1fr));
+        /*grid-template-columns: repeat(auto-fit, minmax(min(250px, 100%), 1fr));*/
+        grid-template-columns: repeat(auto-fill, minmax(min(250px, 100%), 1fr)); /*auto-fill works better*/
     }
 }
-
 
 .switcher {
     display: flex;
