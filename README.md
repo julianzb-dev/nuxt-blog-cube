@@ -72,4 +72,12 @@ yarn preview
 bun run preview
 ```
 
+## Database Migration
+
+1. Create/update database schema
+    - `server/database/schema.ts`
+2. Generate the migrations based on `server/database/schema.ts` and save them in the `server/database/migrations`
+   directory.
+    - `npm run db:generate`
+
 Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.

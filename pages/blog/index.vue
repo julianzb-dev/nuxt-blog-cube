@@ -1,9 +1,11 @@
-<script setup lang="ts">
+<script setup>
 useSeoMeta({
   title: "Web Development Blog",
   description: `Discover insights, tutorials, and best practices about web development, frontend frameworks, 
   and developer tools from my personal journey in the tech industry.`,
 })
+
+const {data: posts} = await usePosts().fetchPosts();
 </script>
 
 <template>
@@ -13,18 +15,17 @@ useSeoMeta({
       <h1>Latest Web Development Insights</h1>
     </section>
     <section class="section | grid">
-      <article v-for="index in 2" :key="index" class="card" :tabindex="index">
+      <article v-for="(post, index) in posts" :key="post.id" class="card" :tabindex="index + 1">
         <div class="image-container">
           <div class="gradient"/>
-          <img src="https://picsum.photos/250" alt="some alternative description">
+          <img :src="post.featured_image" :alt="post.excerpt">
         </div>
         <div class="card-body | stack">
-          <time class="text-sm-semibold">Mar 26, 2025</time>
-          <h3 class="display-xs-semibold" >UX Designs</h3>
-          <p class="card-excerpt | text-md-regular">How do you create compelling presentations that wow your colleagues and impress your
-            managers?</p>
-          <ul class="cluster" >
-            <li class="badge | text-sm-medium">RUST</li>
+          <time class="text-sm-semibold">{{ useDateFormat(post.updated_at, 'MMM DD, YYYY') }}</time>
+          <h3 class="display-xs-semibold" >{{ post.title }}</h3>
+          <p class="card-excerpt | text-md-regular">{{ post.excerpt }}</p>
+          <ul v-for="tag in post.tags" :key="tag.id" class="cluster" >
+            <li class="badge | text-sm-medium">{{ tag.name }}</li>
           </ul>
         </div>
       </article>
@@ -37,13 +38,14 @@ useSeoMeta({
   cursor: pointer;
   border-radius: var(--radius-2xl);
   border: 1px solid var(--border-secondary);
-  transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-out;
+  background: var(--bg-primary_alt);
 }
 
 .card:hover, .card:focus-visible {
   outline: none;
-  border: 1px solid var(--border-primary);
-  box-shadow: 0 0 0.5rem var(--border-primary);
+  border: 1px solid var(--border-secondary);
+  box-shadow: 5px 5px 5px var(--shadow-default);
   transform: scale(1.03);
 }
 
@@ -78,7 +80,7 @@ useSeoMeta({
 
 .card-body {
   --base-margin-block-start: 1rem; /* reduce margin-block-start for .stack class from 1.5rem to 1rem */
-  
+
   text-align: start;
   margin-block: 1rem;
   margin-inline: 1rem;
@@ -96,8 +98,5 @@ useSeoMeta({
   line-clamp: 3;
   text-overflow: ellipsis;
 }
-
-
-
 
 </style>

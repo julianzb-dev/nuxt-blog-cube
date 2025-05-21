@@ -69,6 +69,9 @@ html {
     --colors-bg-primary: var(--colors-base-white);
     --colors-bg-primary_hover: var(--colors-gray-light-mode-50);
 
+    /* Background Alt (light mode) */
+    --bg-primary_alt: var(--colors-base-white);    
+
     /* Button primary background (light mode) */
     --button-primary-bg: var(--colors-brand-600);
     --button-primary-bg_hover: var(--colors-brand-700);
@@ -112,12 +115,19 @@ html {
     /* Border primary (light mode) */
     --border-primary: var(--colors-gray-light-mode-300);
     --border-secondary: var(--colors-gray-light-mode-200);
+    --border-tertiary: var(--colors-gray-light-mode-100);
+
+    /* Shadows (light mode) */
+    --shadow-default: rgba(10, 13, 18, 0.1);
 }
 
 html.dark {
     /* Background (dark mode) */
     --colors-bg-primary: var(--colors-gray-dark-mode-950);
     --colors-bg-primary_hover: var(--colors-gray-dark-mode-800);
+
+    /* Background Alt (dark mode) */
+    --bg-primary_alt: var(--colors-gray-dark-mode-900);
 
     /* Button primary background (dark mode) */
     --button-primary-bg: var(--colors-brand-600);
@@ -159,6 +169,10 @@ html.dark {
     /* Border primary (dark mode) */
     --border-primary: var(--colors-gray-dark-mode-700);
     --border-secondary: var(--colors-gray-dark-mode-800);
+    --border-tertiary: var(--colors-gray-dark-mode-950);
+
+    /* Shadows (dark mode) */
+    --shadow-default: rgb(0, 0, 0);
 }
 
 /* Radius */
