@@ -1,7 +1,9 @@
 :root {
     --sont-size-text-sm: 0.875rem; /* converted */
     --font-size-text-md: 1rem; /* converted */
+    --font-size-text-lg: 1.125rem; /* converted */
     --font-size-text-xl: 1.25rem; /* converted */
+    
 
     --font-size-display-xs: 1.5rem; /* converted */
     --font-size-display-sm: 1.875rem; /* converted */
@@ -10,11 +12,12 @@
 
     --Line-height-text-sm: 1.25rem; /* converted */
     --line-height-text-md: 1.5rem; /* converted */
+    --line-height-text-lg: 1.75rem; /* converted */
     --line-height-text-xl: 1.875rem; /* converted */
 
     --line-height-display-xs: 2rem; /* converted */
-    --Line-height-display-sm: 2.375rem; /* converted */
-    --Line-height-display-md: 2.75rem; /* converted */
+    --line-height-display-sm: 2.375rem; /* converted */
+    --line-height-display-md: 2.75rem; /* converted */
     --line-height-display-lg: 3.75rem; /* converted */
 }
 
@@ -23,6 +26,19 @@
     font-size: var(--font-size-display-xs);
     font-weight: 600;
     line-height: var(--line-height-display-xs);
+}
+
+.display-sm-semibold {
+    font-size: var(--font-size-display-sm);
+    font-weight: 600;
+    line-height: var(--line-height-display-sm);
+}
+
+.display-md-semibold {
+    font-size: var(--font-size-display-md);
+    font-weight: 600;
+    line-height: var(--line-height-display-md);
+    letter-spacing: -0.72px;
 }
 
 .display-lg-semibold {

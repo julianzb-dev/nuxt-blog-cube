@@ -6,6 +6,13 @@ useSeoMeta({
 })
 
 const {data: posts} = await usePosts().fetchPosts();
+
+const router = useRouter()
+function openPost(slug) {
+  router.push({
+    path: `/blog/${slug}`,
+  })
+}
 </script>
 
 <template>
@@ -15,16 +22,16 @@ const {data: posts} = await usePosts().fetchPosts();
       <h1>Latest Web Development Insights</h1>
     </section>
     <section class="section | grid">
-      <article v-for="(post, index) in posts" :key="post.id" class="card" :tabindex="index + 1">
+      <article v-for="(post, index) in posts" :key="post.id" class="card" :tabindex="index + 1" @click="openPost(post.slug)">
         <div class="image-container">
           <div class="gradient"/>
           <img :src="post.featured_image" :alt="post.excerpt">
         </div>
         <div class="card-body | stack">
           <time class="text-sm-semibold">{{ useDateFormat(post.updated_at, 'MMM DD, YYYY') }}</time>
-          <h3 class="display-xs-semibold" >{{ post.title }}</h3>
+          <h3 class="display-xs-semibold">{{ post.title }}</h3>
           <p class="card-excerpt | text-md-regular">{{ post.excerpt }}</p>
-          <ul v-for="tag in post.tags" :key="tag.id" class="cluster" >
+          <ul v-for="tag in post.tags" :key="tag.id" class="cluster">
             <li class="badge | text-sm-medium">{{ tag.name }}</li>
           </ul>
         </div>

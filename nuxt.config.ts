@@ -26,6 +26,12 @@ export default defineNuxtConfig({
       htmlAttrs: {
         lang: 'en',
       },
+      link: [
+        {
+          rel: 'stylesheet',
+          href: 'https://assets.bux.osu.edu/bux-webfonts2/bux-webfonts2.css'
+        }
+      ]
     },
     pageTransition: { name: 'page', mode: 'out-in' },
     layoutTransition: { name: 'layout', mode: 'out-in' }

@@ -119,6 +119,9 @@ html {
 
     /* Shadows (light mode) */
     --shadow-default: rgba(10, 13, 18, 0.1);
+
+    /* Brand (light mode) */
+    --bg-brand-solid: var(--colors-brand-600);
 }
 
 html.dark {
@@ -173,6 +176,9 @@ html.dark {
 
     /* Shadows (dark mode) */
     --shadow-default: rgb(0, 0, 0);
+
+    /* Brand (dark mode) */
+    --bg-brand-solid: var(--colors-brand-600);
 }
 
 /* Radius */
@@ -247,14 +253,14 @@ h1 {
 h2 {
     font-size: var(--font-size-display-xs);
     font-weight: 600;
-    line-height: var(--Line-height-display-md);
+    line-height: var(--line-height-display-md);
     color: var(--colors-text-brand-secondary-700);
 }
 
 h3 {
     font-size: var(--font-size-display-sm);
     font-weight: 600;
-    line-height: var(--Line-height-display-sm);
+    line-height: var(--line-height-display-sm);
     color: var(--colors-text-primary-900);
 }
 

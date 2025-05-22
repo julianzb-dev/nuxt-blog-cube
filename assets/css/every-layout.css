@@ -14,6 +14,10 @@
     margin-block-start: var(--base-margin-block-start, 1.5rem);
 }
 
+.stack-r * + * {
+    margin-block-start: var(--base-margin-block-start, 1.5rem);
+}
+
 .center {
     box-sizing: content-box;
     max-inline-size: 60ch;
@@ -45,4 +49,24 @@
 .switcher > * {
     flex-grow: 1;
     flex-basis: calc((var(--threshold) - 100%) * 999);
+}
+
+.with-sidebar {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.sidebar {
+    /* ↓ The width when the sidebar _is_ a sidebar */
+    flex-basis: 20rem;
+    flex-grow: 1;
+}
+
+.not-sidebar {
+    /* ↓ Grow from nothing */
+    flex-basis: 0;
+    flex-grow: 999;
+    /* ↓ Wrap when the elements are of equal width */
+    min-inline-size: 50%;
 }
