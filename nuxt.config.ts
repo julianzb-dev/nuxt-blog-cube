@@ -48,10 +48,28 @@ export default defineNuxtConfig({
       enabled: true
     }
   },
-  modules: ['@nuxt/content', '@nuxt/eslint', '@nuxthub/core', '@vueuse/nuxt'],
+  modules: [
+    '@nuxt/content',
+    '@nuxt/eslint',
+    '@nuxthub/core',
+    '@vueuse/nuxt',
+    '@nuxt/image'
+  ],
   nitro: {
     experimental: {
       tasks: true
+    }
+  },
+  image: {
+    format: ['webp'],
+    presets: {
+      avatar: {
+        modifiers: {
+          format: 'webp',
+          width: 192,
+          height: 192
+        }
+      }
     }
   }
 })

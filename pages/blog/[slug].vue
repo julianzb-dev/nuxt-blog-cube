@@ -74,6 +74,10 @@ const tableOfContent = postContentData.value?.body?.toc ? postContentData.value?
   text-align: left;
 }
 
+.sidebar {
+  max-inline-size: 30ch;
+}
+
 .with-sidebar {
   align-items: flex-start; /* Needed to position: sticky in .sticky-container take effect */
 }

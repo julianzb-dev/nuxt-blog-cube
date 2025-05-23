@@ -11,17 +11,17 @@ useSeoMeta({
 
 <template>
   <section class="section | stack center">
-    <img class="avatar" src="https://picsum.photos/300" alt="Digital innovation concept illustration">
-    <h2>Julian Zapata</h2>
-    <h1>Full-Stack Mastered</h1>
+    <NuxtImg src="/avatar.png" width="192" height="192" class="avatar" alt="User's avatar" aria-hidden="true" />
+    <h2>John Doe</h2>
+    <h1>Test Developer</h1>
     <p>
-      Hey there, welcome! I'm a <strong>web developer</strong> with {{ startOfCareerDate }} years of
+      Hey there, welcome! I'm a <strong>test developer</strong> with 5 years of
       experience crafting online solutions. I'm particularly passionate about
-      <strong>Vue.js</strong> – you'll find plenty of insights and discoveries on my <strong>blog</strong>.
+      <strong>React.js</strong> – you'll find plenty of insights and discoveries on my <strong>blog</strong>.
     </p>
     <p>
-      Currently, I'm diving into <strong>Web Design</strong>, <strong>Nuxt</strong>, and <strong>Rust</strong>.
-      Please check out my <strong>portfolio</strong>(coming soon), have a look around, and feel free to reach me out!
+      Currently, I'm diving into <strong>UI/UX Design</strong>, <strong>Next.js</strong>, and <strong>Go</strong>.
+      Please check out my <strong>portfolio</strong>, have a look around, and feel free to reach me out!
     </p>
     <div class="cta | cluster ">
       <nuxt-link class="btn" data-size="xl" data-priority="secondary" to="/blog">Read my blog</nuxt-link>
@@ -32,8 +32,6 @@ useSeoMeta({
 
 <style scoped>
 .section > .avatar {
-  width: 12rem;
-  height: 12rem;
   border-radius: var(--radius-full);
   user-select: none;
 }
