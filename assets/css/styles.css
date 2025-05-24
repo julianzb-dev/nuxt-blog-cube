@@ -65,6 +65,9 @@
 
 /* semantic color variables for this project */
 html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 4rem; /* 60px */
+    
     /* Background (light mode) */
     --colors-bg-primary: var(--colors-base-white);
     --colors-bg-primary_hover: var(--colors-gray-light-mode-50);
@@ -262,6 +265,11 @@ h3 {
     font-weight: 600;
     line-height: var(--line-height-display-sm);
     color: var(--colors-text-primary-900);
+}
+
+
+h4 {
+    color: var(--colors-text-brand-secondary-700);
 }
 
 /* Global classes */

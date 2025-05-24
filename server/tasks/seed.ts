@@ -17,16 +17,17 @@ export default defineTask({
                 status: 'draft',
                 created_at: sql`(unixepoch())`
             },
-            {
-                title: 'Design systems fundamentals',
-                slug: 'design-systems-fundamentals',
-                excerpt: 'Learn the basics of creating and maintaining effective design systems to improve collaboration and consistency across your products.',
-                content_md_id: '/design-systems-fundamentals',
-                language: 'en',
-                featured_image: 'https://picsum.photos/1280/640',
-                status: 'draft',
-                created_at: sql`(unixepoch())`
-            }
+            // INFO: File content/design-systems-fundamentals.md must be created to add this post 
+            // {
+            //     title: 'Design systems fundamentals',
+            //     slug: 'design-systems-fundamentals',
+            //     excerpt: 'Learn the basics of creating and maintaining effective design systems to improve collaboration and consistency across your products.',
+            //     content_md_id: '/design-systems-fundamentals',
+            //     language: 'en',
+            //     featured_image: 'https://picsum.photos/1280/640',
+            //     status: 'draft',
+            //     created_at: sql`(unixepoch())`
+            // }
         ]
         await useDrizzle().insert(tables.posts).values(posts)
         return { result: 'success' }

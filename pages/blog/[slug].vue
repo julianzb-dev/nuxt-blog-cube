@@ -1,5 +1,4 @@
 <script setup>
-// import avatar from '~/assets/images/avatar.jpeg';
 const route = useRoute();
 const slug = route.params.slug;
 
@@ -7,7 +6,7 @@ const {data: post} = await usePosts().fetchPostBySlug(slug);
 
 useSeoMeta({
   description: post.value?.excerpt,
-  title: `${post.value?.title} by Julian Zapata`
+  title: `${post.value?.title} by Test Developer`
 })
 
 const {data: postContentData} = await useAsyncData(() => queryCollection('content').path(post.value.content_md_id).first())
@@ -24,11 +23,28 @@ const tableOfContent = postContentData.value?.body?.toc ? postContentData.value?
         {{ post.excerpt }}
       </p>
       <div class="author-profile | cluster">
-        <img src="https://picsum.photos/60" alt="author's avatar" aria-hidden="true">
+        <NuxtImg src="/avatar.png" width="60" height="60" class="avatar" alt="Author's avatar" aria-hidden="true" />
         <div class="author-info | stack">
-          <p class="author-name | text-md-semibold">Julian Zapata</p>
-          <p class="text-md-regular">Web Developer</p>
+          <p class="author-name | text-md-semibold">John Doe</p>
+          <p class="text-md-regular">Test Developer</p>
         </div>
+      </div>
+
+      <div class="social-links | cluster">
+        <a href="https://www.linkedin.com/in/jzapatab/" class="social-link" target="_blank">
+          <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="20"
+              height="20"
+              viewBox="0 0 20 20"
+              fill="none"
+          >
+            <path
+                d="M18.5195 0H1.47656C0.660156 0 0 0.644531 0 1.44141V18.5547C0 19.3516 0.660156 20 1.47656 20H18.5195C19.3359 20 20 19.3516 20 18.5586V1.44141C20 0.644531 19.3359 0 18.5195 0ZM5.93359 17.043H2.96484V7.49609H5.93359V17.043ZM4.44922 6.19531C3.49609 6.19531 2.72656 5.42578 2.72656 4.47656C2.72656 3.52734 3.49609 2.75781 4.44922 2.75781C5.39844 2.75781 6.16797 3.52734 6.16797 4.47656C6.16797 5.42188 5.39844 6.19531 4.44922 6.19531ZM17.043 17.043H14.0781V12.4023C14.0781 11.2969 14.0586 9.87109 12.5352 9.87109C10.9922 9.87109 10.7578 11.0781 10.7578 12.3242V17.043H7.79688V7.49609H10.6406V8.80078H10.6797C11.0742 8.05078 12.043 7.25781 13.4844 7.25781C16.4883 7.25781 17.043 9.23438 17.043 11.8047V17.043Z"
+                fill="#A4A7AE"
+            />
+          </svg>
+        </a>
       </div>
     </section>
     <!-- End - hero section -->
@@ -47,10 +63,10 @@ const tableOfContent = postContentData.value?.body?.toc ? postContentData.value?
           <ul class="stack-r">
             <template v-for="tacItem in tableOfContent.links" :key="tacItem.id">
               <li>
-                <a class="text-md-semibold" :href="`#${tacItem.id}`">{{ tacItem.text }}</a>
+                <a class="tc-anchor | text-md-semibold" :href="`#${tacItem.id}`">{{ tacItem.text }}</a>
                 <ul v-if="tacItem?.children" class="tac-item stack" >
                   <li v-for="tacSubItem in tacItem.children" :key="tacSubItem.id">
-                    <a :href="`#${tacSubItem.id}`">{{ tacSubItem.text }}</a>
+                    <a class="tc-anchor-sub" :href="`#${tacSubItem.id}`">{{ tacSubItem.text }}</a>
                   </li>
                 </ul>
               </li>
@@ -78,13 +94,23 @@ const tableOfContent = postContentData.value?.body?.toc ? postContentData.value?
   max-inline-size: 30ch;
 }
 
+.tc-anchor {
+  color: var(--colors-text-primary-900);
+  font-weight: 600;
+}
+
+.tc-anchor-sub {
+  color: var(--colors-text-tertiary-600);
+  font-weight: 500;
+}
+
 .with-sidebar {
   align-items: flex-start; /* Needed to position: sticky in .sticky-container take effect */
 }
 
 .sticky-container {
   position: sticky;
-  top: 4rem;
+  top: 6rem;
 }
 
 .author-profile {
@@ -115,13 +141,18 @@ const tableOfContent = postContentData.value?.body?.toc ? postContentData.value?
   margin-inline-start: 1rem;
 }
 
-.post-content {
-  width: 100%;
+.social-links {
+  margin-block-start: 0.5rem;
+}
 
-  p, li {
-    font-family: "BuckeyeSerif", "Georgia", serif;
+@media screen and (max-width: 612px) {
+  .sticky-container {
+    position: relative;
+    top: 0;
+    margin-block-end: 1rem;
   }
 }
+
 </style>
 
 <style>
