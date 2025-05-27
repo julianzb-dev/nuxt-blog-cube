@@ -23,7 +23,7 @@ const tableOfContent = postContentData.value?.body?.toc ? postContentData.value?
         {{ post.excerpt }}
       </p>
       <div class="author-profile | cluster">
-        <NuxtImg src="/avatar.png" width="60" height="60" class="avatar" alt="Author's avatar" aria-hidden="true" />
+        <NuxtImg src="/avatar.png" width="60" height="60" class="avatar" alt="Author's avatar" aria-hidden="true"/>
         <div class="author-info | stack">
           <p class="author-name | text-md-semibold">John Doe</p>
           <p class="text-md-regular">Test Developer</p>
@@ -57,14 +57,14 @@ const tableOfContent = postContentData.value?.body?.toc ? postContentData.value?
 
     <!-- Start - blog's content section -->
     <section class="section | with-sidebar">
-      <div class="sticky-container" >
+      <div class="sticky-container">
         <aside class="sidebar | stack">
           <h4>Table of contents</h4>
           <ul class="stack-r">
             <template v-for="tacItem in tableOfContent.links" :key="tacItem.id">
               <li>
                 <a class="tc-anchor | text-md-semibold" :href="`#${tacItem.id}`">{{ tacItem.text }}</a>
-                <ul v-if="tacItem?.children" class="tac-item stack" >
+                <ul v-if="tacItem?.children" class="tac-item stack">
                   <li v-for="tacSubItem in tacItem.children" :key="tacSubItem.id">
                     <a class="tc-anchor-sub" :href="`#${tacSubItem.id}`">{{ tacSubItem.text }}</a>
                   </li>
@@ -72,9 +72,9 @@ const tableOfContent = postContentData.value?.body?.toc ? postContentData.value?
               </li>
             </template>
           </ul>
-        </aside>  
+        </aside>
       </div>
-      
+
       <article class="not-sidebar">
         <ContentRenderer class="post-content" :value="postContentData"/>
       </article>
@@ -84,14 +84,21 @@ const tableOfContent = postContentData.value?.body?.toc ? postContentData.value?
 </template>
 
 <style scoped>
-
+/* Layout components */
 .section.with-sidebar {
   --base-margin-block-start: 1rem;
   text-align: left;
+  align-items: flex-start; /* For sticky positioning */
 }
 
+/* Sidebar styling */
 .sidebar {
   max-inline-size: 30ch;
+}
+
+.sticky-container {
+  position: sticky;
+  top: 6rem;
 }
 
 .tc-anchor {
@@ -104,21 +111,15 @@ const tableOfContent = postContentData.value?.body?.toc ? postContentData.value?
   font-weight: 500;
 }
 
-.with-sidebar {
-  align-items: flex-start; /* Needed to position: sticky in .sticky-container take effect */
+.tac-item > li {
+  margin-inline-start: 1rem;
 }
 
-.sticky-container {
-  position: sticky;
-  top: 6rem;
-}
-
-.author-profile {
-  img {
-    width: 60px;
-    height: 60px;
-    border-radius: var(--radius-full);
-  }
+/* Author section */
+.author-profile img {
+  width: 60px;
+  height: 60px;
+  border-radius: var(--radius-full);
 }
 
 .author-info {
@@ -130,6 +131,11 @@ const tableOfContent = postContentData.value?.body?.toc ? postContentData.value?
   color: var(--colors-text-primary-900);
 }
 
+.social-links {
+  margin-block-start: 0.5rem;
+}
+
+/* Featured image */
 .featured-image {
   width: 100%;
   height: 400px;
@@ -137,14 +143,7 @@ const tableOfContent = postContentData.value?.body?.toc ? postContentData.value?
   object-position: center;
 }
 
-.tac-item > li {
-  margin-inline-start: 1rem;
-}
-
-.social-links {
-  margin-block-start: 0.5rem;
-}
-
+/* Responsive adjustments */
 @media screen and (max-width: 612px) {
   .sticky-container {
     position: relative;
@@ -153,84 +152,74 @@ const tableOfContent = postContentData.value?.body?.toc ? postContentData.value?
   }
 }
 
-</style>
+/* Content styling - grouped by element types */
+.post-content :deep(p),
+.post-content :deep(li) {
+  font-family: "BuckeyeSerif", "Georgia", serif;
+}
 
-<style>
-.post-content {
-  p, li {
-    font-family: "BuckeyeSerif", "Georgia", serif;
-  }
+.post-content :deep(li > strong) {
+  font-family: var(--font-family, Inter), serif;
+}
 
-  li > strong {
-    font-family: var(--font-family, Inter), serif;
-  }
+.post-content :deep(a) {
+  text-decoration: none;
+  color: var(--button-secondary-fg);
+}
 
-  a {
-    text-decoration: none;
-    color: var(--button-secondary-fg);
-  }
+.post-content :deep(ul) {
+  list-style: inside;
+  padding: 1.25rem 0 0 1.875rem;
+}
 
-  ul {
-    list-style: inside;
-    padding: 1.25rem 0 0 1.875rem;
-  }
+.post-content :deep(li) {
+  font-size: var(--font-size-text-lg);
+  font-weight: 400;
+  line-height: var(--line-height-text-lg);
+  color: var(--colors-text-tertiary-600);
+}
 
-  li {
-    font-size: var(--font-size-text-lg);
-    font-style: normal;
-    font-weight: 400;
-    line-height: var(--line-height-text-lg);
-    color: var(--colors-text-tertiary-600);
-  }
+.post-content :deep(p) {
+  font-size: var(--font-size-text-xl);
+  font-weight: 400;
+  color: var(--colors-text-tertiary-600);
+  margin-top: 0.625rem;
+  letter-spacing: -0.003em;
+  line-height: 32px;
+}
 
-  p {
-    /* text-xl-regular */
-    font-size: var(--font-size-text-xl);
-    font-weight: 400;
-    
-    color: var(--colors-text-tertiary-600);
-    margin-top: 0.625rem;
-    letter-spacing: -0.003em;
-    line-height: 32px;
-  }
+/* Heading styles - grouped together */
+.post-content :deep(h1) {
+  font-size: var(--font-size-display-md);
+  font-weight: 600;
+  line-height: var(--line-height-display-md);
+  letter-spacing: -0.72px;
+}
 
-  h1 {
-    /* display-md-semibold */
-    font-size: var(--font-size-display-md);
-    font-weight: 600;
-    line-height: var(--line-height-display-md);
-    letter-spacing: -0.72px;
-  }
+.post-content :deep(h2) {
+  font-size: var(--font-size-display-sm);
+  font-weight: 600;
+  line-height: var(--line-height-display-sm);
+}
 
-  h2 {
-    /* display-sm-semibold */
-    font-size: var(--font-size-display-sm);
-    font-weight: 600;
-    line-height: var(--line-height-display-sm);
-  }
+.post-content :deep(h3) {
+  font-size: var(--font-size-display-xs);
+  font-weight: 600;
+  line-height: var(--line-height-display-xs);
+  margin-block-start: 1.875rem;
+}
 
-  h3 {
-    /* display-xs-semibold */
-    font-size: var(--font-size-display-xs);
-    font-weight: 600;
-    line-height: var(--line-height-display-xs);
+.post-content :deep(span) {
+  line-height: var(--line-height-text-md);
+}
 
-    margin-block-start: 1.875rem;
-  }
-
-  span {
-    line-height: var(--line-height-text-md);
-  }
-
-  pre {
-    margin-top: 1.875rem;
-    margin-bottom: 1.875rem;
-    width: 100%;
-    overflow-x: auto;
-    background-color: var(--colors-bg-primary);
-    scrollbar-color: var(--bg-brand-solid) white;
-    scrollbar-width: thin;
-  }
-  
+.post-content :deep(pre) {
+  margin-top: 1.875rem;
+  margin-bottom: 1.875rem;
+  width: 100%;
+  overflow-x: auto;
+  background-color: var(--colors-bg-primary);
+  scrollbar-color: var(--bg-brand-solid) white;
+  scrollbar-width: thin;
 }
 </style>
